@@ -11,8 +11,11 @@
 
 #import "WYAlertAction.h"
 #import "WYAlertActionAlert.h"
+#import "WYAlertActionSheet.h"
 
-@interface WYViewsPart1ViewController ()
+#import "WYAutoPlayScrollView.h"
+
+@interface WYViewsPart1ViewController () <WYAutoPlayScrollViewDelegate>
 {
     CGFloat _currrentTopEdgeY;
 }
@@ -20,6 +23,8 @@
 @property (nonatomic, strong) UIScrollView *mainScrollView;
 
 @property (nonatomic, strong) WYAlertActionAlert *actionAlert;
+
+@property (nonatomic, strong) WYAlertActionSheet *actionSheet;
 
 @end
 
@@ -55,9 +60,48 @@
     dispatch_once(&onceToken, ^{
         self.mainScrollView.frame = self.view.bounds;
         
+        // setup WYAutoPlayScrollView
+        [self setupWYAutoPlayScrollView];
+        
         // setup WYAlertActionAlert
         [self setupWYAlertActionAlert];
+        
+        // setup WYAlertActionSheet
+        [self setupWYAlertActionSheet];
     });
+}
+
+
+/**
+ WYAutoPlayScrollView
+ */
+- (void)setupWYAutoPlayScrollView {
+    WYAutoPlayScrollView *apsView = [[WYAutoPlayScrollView alloc] init];
+    apsView.autoPlayInterval = 2.0;
+    apsView.loop = YES;
+    apsView.pagesCount = 5;
+    apsView.delegate = self;
+    
+    apsView.frame = CGRectMake(0, _currrentTopEdgeY, CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.view.bounds)*9/16.0);
+    [self.mainScrollView addSubview:apsView];
+    
+    _currrentTopEdgeY += (CGRectGetMaxY(apsView.frame));
+    self.mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.bounds), _currrentTopEdgeY);
+}
+
+- (void)autoPlayScrollView:(WYAutoPlayScrollView *)scrollView
+                 imageView:(UIImageView *)imageView
+                   atIndex:(NSInteger)index {
+    
+    if(index%2) {
+        imageView.image = [UIImage imageNamed:@"img_demo_001"];
+    } else {
+        imageView.image = [UIImage imageNamed:@"img_demo_002"];
+    }
+}
+
+- (void)autoPlayScrollView:(WYAutoPlayScrollView *)scrollView didSelectedCellAtIndex:(NSInteger)index {
+    
 }
 
 /**
@@ -111,9 +155,59 @@
     // show with screen orientation
 //    [self.actionAlert showWithOrientation:UIInterfaceOrientationLandscapeLeft];
     
-    // show with screen orientation and in a desinated window
+    // show with screen orientation and in a designated window
 //    [self.actionAlert showWithOrientation:UIInterfaceOrientationPortrait
 //                                   window:nil];
+}
+
+/**
+ WYAlertActionSheet
+ */
+- (void)setupWYAlertActionSheet {
+    
+    UIButton *showButton = [[UIButton alloc] init];
+    [showButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    showButton.frame = CGRectMake(CGRectGetWidth(self.view.bounds)/2-100, _currrentTopEdgeY+50, 200, 40);
+    [showButton setTitle:@"WYAlertActionSheet" forState:UIControlStateNormal];
+    [showButton addTarget:self
+                   action:@selector(showWYAlertActionSheet)
+         forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.mainScrollView addSubview:showButton];
+    
+    _currrentTopEdgeY += 100;
+    self.mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.bounds), _currrentTopEdgeY);
+    
+    WYAlertActionSheet *actionSheet = [[WYAlertActionSheet alloc] init];
+    
+    __weak WYAlertActionSheet *weakSheet = actionSheet;
+    WYAlertAction *item1Action = [WYAlertAction actionWithTitle:@"Item1"
+                                                            style:WYAlertActionDefault
+                                                          handler:^(WYAlertAction *action) {
+                                                              [weakSheet hide];
+                                                          }];
+    WYAlertAction *item2Action = [WYAlertAction actionWithTitle:@"Item2"
+                                                          style:WYAlertActionDefault
+                                                        handler:^(WYAlertAction *action) {
+                                                            [weakSheet hide];
+                                                        }];
+    
+    WYAlertAction *cancelAction = [WYAlertAction actionWithTitle:@"Cancel"
+                                                           style:WYAlertActionCancel
+                                                         handler:^(WYAlertAction *action) {
+                                                             [weakSheet hide];
+                                                         }];
+    
+    [actionSheet addAction:item1Action];
+    [actionSheet addAction:item2Action];
+    [actionSheet addAction:cancelAction];
+    
+    self.actionSheet = actionSheet;
+}
+
+- (void)showWYAlertActionSheet {
+    
+    [self.actionSheet show];
 }
 
 @end

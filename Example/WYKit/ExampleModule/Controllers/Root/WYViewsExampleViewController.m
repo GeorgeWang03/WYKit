@@ -12,6 +12,7 @@
 
 //Controller
 #import "WYViewsExampleViewController.h"
+#import "WYViewsPart1ViewController.h"
 
 //Other
 #import "WYMarco.h"
@@ -61,7 +62,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.titles = @[];
+    self.titles = @[@"Part_01"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -86,6 +87,18 @@
 #pragma mark - table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    switch (indexPath.row) {
+        case 0:
+        {
+            WYViewsPart1ViewController *vc = [[WYViewsPart1ViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

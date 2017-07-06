@@ -15,7 +15,7 @@ FOUNDATION_EXTERN NSString * const kWYCircleItemSelectedViewCellNotifyInfoIndexP
 @interface WYCircleItemSelectedView : UIView
 
 // 必需是NSString类型
-@property (nonatomic, strong) NSArray *itemsTitle;
+@property (nonatomic, strong) NSArray<NSString *> *itemsTitle;
 
 @property (nonatomic, readonly) UICollectionView *contentCollectionView;
 

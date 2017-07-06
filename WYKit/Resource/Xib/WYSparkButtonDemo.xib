@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="MJw-3p-qB2" customClass="WYSparkButtonDemo">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wn-sJ-LEq" customClass="WYSparkButton">
+                    <rect key="frame" x="100" y="50" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="V2A-Ys-5CZ"/>
+                        <constraint firstAttribute="width" secondItem="7Wn-sJ-LEq" secondAttribute="height" id="Wph-tc-wf7"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="app_ic_home_areaSpecial"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconNormalColor">
+                            <color key="value" red="0.72336632013320923" green="0.72336632013320923" blue="0.72336632013320923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
+                            <color key="value" red="1" green="0.1491314172744751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="ringFromColor">
+                            <color key="value" red="1" green="0.1491314172744751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="ringToColor">
+                            <color key="value" red="1" green="0.57810515165328979" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="firstDotColor">
+                            <color key="value" red="0.55634254217147827" green="0.97934550046920776" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="secondDotColor">
+                            <color key="value" red="0.46202266216278076" green="0.8382837176322937" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7Wn-sJ-LEq" firstAttribute="top" secondItem="MJw-3p-qB2" secondAttribute="top" constant="50" id="2dX-Ba-3ph"/>
+                <constraint firstItem="7Wn-sJ-LEq" firstAttribute="leading" secondItem="MJw-3p-qB2" secondAttribute="leading" constant="100" id="qBD-Ct-iAl"/>
+            </constraints>
+            <point key="canvasLocation" x="-149" y="115"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="app_ic_home_areaSpecial" width="34" height="34"/>
+    </resources>
+</document>

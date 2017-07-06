@@ -1,0 +1,24 @@
+PODS:
+  - Masonry (1.0.2)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - WYKit (0.1.0):
+    - Masonry
+    - SDWebImage (~> 3.7.5)
+
+DEPENDENCIES:
+  - WYKit (from `../`)
+
+EXTERNAL SOURCES:
+  WYKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  WYKit: fe50ea7e4aa8458e67855a9aa3fc010e3d751b5a
+
+PODFILE CHECKSUM: f5f5d2e3939a2308e3568ec9711dc95135f7ff56
+
+COCOAPODS: 1.2.0

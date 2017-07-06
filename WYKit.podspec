@@ -32,11 +32,13 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'WYKit/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'WYKit' => ['WYKit/Assets/*.png']
-  # }
+   s.resource_bundles = {
+     'WYKit' => ['WYKit/Resource/**/*.{xcassets,storyboard,xib,png}']
+   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'SDWebImage', '~> 3.7.5'
+  s.dependency 'Masonry'
 end

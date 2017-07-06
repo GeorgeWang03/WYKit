@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Lxb-XV-ZLC" customClass="WYSearchBar">
+            <rect key="frame" x="0.0" y="0.0" width="325" height="32"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cstm_search" translatesAutoresizingMaskIntoConstraints="NO" id="a9E-CX-hYg">
+                    <rect key="frame" x="10" y="7" width="18" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="a9E-CX-hYg" secondAttribute="height" id="CAY-a2-x23"/>
+                        <constraint firstAttribute="width" constant="18" id="bnN-FN-k3r"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="搜索58位用户" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fIN-5z-2J0">
+                    <rect key="frame" x="33" y="0.0" width="282" height="32"/>
+                    <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="0.16209179162979126" green="0.5835411548614502" blue="0.83266013860702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fIN-5z-2J0" firstAttribute="leading" secondItem="a9E-CX-hYg" secondAttribute="trailing" constant="5" id="2GX-DC-ih4"/>
+                <constraint firstAttribute="bottom" secondItem="fIN-5z-2J0" secondAttribute="bottom" id="3JK-DD-Wme"/>
+                <constraint firstItem="a9E-CX-hYg" firstAttribute="centerY" secondItem="Lxb-XV-ZLC" secondAttribute="centerY" id="Ggr-gF-MhM"/>
+                <constraint firstItem="fIN-5z-2J0" firstAttribute="top" secondItem="Lxb-XV-ZLC" secondAttribute="top" id="VWi-eV-wK8"/>
+                <constraint firstItem="a9E-CX-hYg" firstAttribute="leading" secondItem="Lxb-XV-ZLC" secondAttribute="leading" constant="10" id="f1J-Tc-iRF"/>
+                <constraint firstAttribute="trailing" secondItem="fIN-5z-2J0" secondAttribute="trailing" constant="10" id="h1M-Jr-0mR"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="iconImageView" destination="a9E-CX-hYg" id="w56-HA-vOr"/>
+                <outlet property="textfield" destination="fIN-5z-2J0" id="f2a-Lu-BJv"/>
+            </connections>
+            <point key="canvasLocation" x="-222.5" y="-528"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_cstm_search" width="16" height="16"/>
+    </resources>
+</document>

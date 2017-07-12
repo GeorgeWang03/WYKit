@@ -11,8 +11,9 @@
 
 #define WYBundleName @"WYKit"
 
-#define WYPodBundle [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"WYKit.bundle"]
+#define WYPodBundlePath [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"Frameworks/WYKit.framework/WYKit.bundle"]
+#define WYPodBundle [NSBundle bundleWithPath:WYPodBundlePath]
 
-#define WYPodImageNamed(named) [UIImage imageNamed:named]
+#define WYPodImageNamed(named) [UIImage imageNamed:named inBundle:WYPodBundle compatibleWithTraitCollection:nil]
 
 #endif /* WYPodDefine_h */

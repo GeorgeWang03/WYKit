@@ -8,6 +8,7 @@
 
 #import "WYMarco.h"
 #import "Masonry.h"
+#import "WYPodDefine.h"
 #import "WYCircleItemSelectedView.h"
 
 NSString * const kWYCircleItemSelectedViewCellSelectedNotificationName = @"kWYCircleItemSelectedViewCellSelectedNotificationName";
@@ -78,9 +79,9 @@ NSString * const kWYCircleItemSelectedViewCellNotifyInfoIndexPathKey = @"kWYCirc
 - (void)setSelected:(BOOL)selected {
     [super setSelected:selected];
     if (selected) {
-        _icon.image = _selectedImageName ? [UIImage imageNamed:_selectedImageName] : [UIImage imageNamed:@"exp_ic_budget_cir_h"];
+        _icon.image = _selectedImageName ? [UIImage imageNamed:_selectedImageName] : WYPodImageNamed(@"ic_basic_cir_s");
     } else {
-        _icon.image = _deselectedImageName ? [UIImage imageNamed:_deselectedImageName] : [UIImage imageNamed:@"exp_ic_budget_cir_u"];
+        _icon.image = _deselectedImageName ? [UIImage imageNamed:_deselectedImageName] : WYPodImageNamed(@"ic_basic_cir_u");
     }
 }
 

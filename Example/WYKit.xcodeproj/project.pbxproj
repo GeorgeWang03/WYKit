@@ -24,6 +24,7 @@
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		AF6D489AA4E8C6A36D7F6547 /* Pods_WYKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D90EE9E09A7AE7E4F708CF /* Pods_WYKit_Tests.framework */; };
 		BE61EAC1BEF000E0FA8BA025 /* Pods_WYKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00B7DA0573132A571619D6A /* Pods_WYKit_Example.framework */; };
+		C39C9E9A1F161A2A002AA474 /* WYViewsPart2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C39C9E991F161A2A002AA474 /* WYViewsPart2ViewController.m */; };
 		C3C150C91EEF8A7800B648A4 /* WYRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C150C81EEF8A7800B648A4 /* WYRootViewController.m */; };
 		C3C150CC1EEF8ABA00B648A4 /* WYViewsExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C150CB1EEF8ABA00B648A4 /* WYViewsExampleViewController.m */; };
 		C3C150CF1EEF91C600B648A4 /* WYViewsPart1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C150CE1EEF91C600B648A4 /* WYViewsPart1ViewController.m */; };
@@ -66,6 +67,8 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79D852D8F43EE90A27B59438 /* Pods-WYKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WYKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WYKit_Tests/Pods-WYKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C39C9E981F161A2A002AA474 /* WYViewsPart2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYViewsPart2ViewController.h; sourceTree = "<group>"; };
+		C39C9E991F161A2A002AA474 /* WYViewsPart2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYViewsPart2ViewController.m; sourceTree = "<group>"; };
 		C3C150C71EEF8A7800B648A4 /* WYRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYRootViewController.h; sourceTree = "<group>"; };
 		C3C150C81EEF8A7800B648A4 /* WYRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYRootViewController.m; sourceTree = "<group>"; };
 		C3C150CA1EEF8ABA00B648A4 /* WYViewsExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYViewsExampleViewController.h; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 			children = (
 				C3C150CD1EEF91C600B648A4 /* WYViewsPart1ViewController.h */,
 				C3C150CE1EEF91C600B648A4 /* WYViewsPart1ViewController.m */,
+				C39C9E981F161A2A002AA474 /* WYViewsPart2ViewController.h */,
+				C39C9E991F161A2A002AA474 /* WYViewsPart2ViewController.m */,
 			);
 			path = ViewsExample;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3C150C91EEF8A7800B648A4 /* WYRootViewController.m in Sources */,
+				C39C9E9A1F161A2A002AA474 /* WYViewsPart2ViewController.m in Sources */,
 				6003F59E195388D20070C39A /* WYAppDelegate.m in Sources */,
 				C3C150CF1EEF91C600B648A4 /* WYViewsPart1ViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* WYViewController.m in Sources */,

@@ -13,6 +13,7 @@
 //Controller
 #import "WYViewsExampleViewController.h"
 #import "WYViewsPart1ViewController.h"
+#import "WYViewsPart2ViewController.h"
 
 //Other
 #import "WYMarco.h"
@@ -62,7 +63,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.titles = @[@"Part_01"];
+    self.titles = @[@"Part_01", @"Part_02"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -92,6 +93,12 @@
         case 0:
         {
             WYViewsPart1ViewController *vc = [[WYViewsPart1ViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 1:
+        {
+            WYViewsPart2ViewController *vc = [[WYViewsPart2ViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;

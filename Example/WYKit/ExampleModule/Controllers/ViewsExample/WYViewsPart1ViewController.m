@@ -101,7 +101,7 @@
 }
 
 - (void)autoPlayScrollView:(WYAutoPlayScrollView *)scrollView didSelectedCellAtIndex:(NSInteger)index {
-    
+    // do something when tap inside image at index
 }
 
 /**

@@ -297,6 +297,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = GeorgeWang03;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = P3G84VNT6D;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -574,6 +577,7 @@
 			baseConfigurationReference = DF90430DAF73805E2DB84847 /* Pods-WYKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P3G84VNT6D;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WYKit/WYKit-Prefix.pch";
 				INFOPLIST_FILE = "WYKit/WYKit-Info.plist";
@@ -589,6 +593,7 @@
 			baseConfigurationReference = 3F2D0F1442A439BCF35E30A9 /* Pods-WYKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P3G84VNT6D;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WYKit/WYKit-Prefix.pch";
 				INFOPLIST_FILE = "WYKit/WYKit-Info.plist";

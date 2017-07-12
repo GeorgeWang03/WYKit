@@ -49,7 +49,7 @@
             break;
     }
     
-    self.iconImageView.image = WYPodImageNamed(@"");
+    self.iconImageView.image = WYPodImageNamed(iconName);
     self.backgroundColor = backgroundColor;
     self.textfield.textColor = foregroundColor;
     [self.textfield wy_setPlaceholderColor:placeholderColor];

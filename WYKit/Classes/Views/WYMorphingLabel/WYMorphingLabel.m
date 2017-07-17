@@ -29,6 +29,8 @@
 
 @interface WYMorphingLabel ()
 
+@property (nonatomic, strong) NSArray *currentCharacters;
+
 @property (nonatomic, assign) NSInteger currentFrameIndex;
 @property (nonatomic, assign) NSInteger totalFrames;
 
@@ -49,6 +51,20 @@
     [super setText:text];
     
     [self initializeNormalState];
+}
+
+- (void)setTextColor:(UIColor *)textColor {
+    [super setTextColor:textColor];
+    [self resetEmitterImage];
+}
+
+- (void)setNumberOfLines:(NSInteger)numberOfLines {
+    NSAssert(numberOfLines == 1, @"WYMorphingLabel required single line.");
+    [super setNumberOfLines:numberOfLines];
+}
+
+- (void)setAttributedText:(NSAttributedString *)attributedText {
+    NSAssert(NO, @"WYMorphingLabel unsupported attributedText.");
 }
 
 - (NSMutableArray *)emitters {
@@ -75,10 +91,12 @@
     _totalFrames = 1;
     _currentFrameIndex = 1;
     
+    // reset characters to empty
+    _currentCharacters = nil;
+    
     // recalculate chars` rect
     _previousCharRects = nil;
-    _charRects = [self rectsOfString:self.text
-                                font:self.font];
+    _charRects = nil;
 }
 
 - (void)initializeAnimationState {
@@ -90,8 +108,7 @@
     
     // recalculate chars` rect
     _previousCharRects = nil;
-    _charRects = [self rectsOfString:self.text
-                                font:self.font];
+    _charRects = nil;
 }
 
 - (void)handleFramesUpdate {
@@ -120,7 +137,7 @@
     CGFloat progress = fmin((float)(_currentFrameIndex) / (float)_totalFrames, 1.0);
 //    NSLog(@"progress %f", progress);
     if (progress <= 0 || progress > 1) {
-        _previousCharRects = _charRects;
+        _previousCharRects = self.charRects;
         return;
     }
     
@@ -136,7 +153,8 @@
         
         if (progress < 0.65) {
             emitter.emitterSize = CGSizeMake(character.frame.size.width, 1.0);
-            emitter.position = CGPointMake(CGRectGetMidX(character.frame), CGRectGetMaxY(character.maskedFrame));
+            emitter.frame = CGRectMake(CGRectGetMidX(character.frame), 1.5*CGRectGetMaxY(character.maskedFrame), character.frame.size.width, 1.0);
+//            emitter.position = CGPointMake(CGRectGetMidX(character.frame), CGRectGetMaxY(character.maskedFrame));
             [self.layer addSublayer:emitter];
         } else {
             emitter.position = CGPointMake(CGRectGetMidX(character.frame), CGRectGetMinY(character.maskedFrame));
@@ -182,24 +200,35 @@
     }
 }
 
+- (NSArray *)charRects {
+    if (!_charRects) {
+        _charRects = [self rectsOfString:self.text font:self.font];
+    }
+    return _charRects;
+}
+
 - (NSArray *)currentCharacters {
     
-    NSMutableArray *characters = [NSMutableArray array];
-    
-    WYMorphingChar *currentMorhingChar;
-    
-    for(NSInteger idx = 0; idx < self.text.length; ++ idx) {
+    if (!_currentCharacters) {
+        NSMutableArray *characters = [NSMutableArray array];
         
-        currentMorhingChar = [[WYMorphingChar alloc] init];
-        currentMorhingChar.character = [self.text substringWithRange:NSMakeRange(idx, 1)];
-        currentMorhingChar.frame = [_charRects[idx] CGRectValue];
-        currentMorhingChar.alpha = 1.0;
-        currentMorhingChar.fontSize = self.font.pointSize;
+        WYMorphingChar *currentMorhingChar;
         
-        [characters addObject:currentMorhingChar];
+        for(NSInteger idx = 0; idx < self.text.length; ++ idx) {
+            
+            currentMorhingChar = [[WYMorphingChar alloc] init];
+            currentMorhingChar.character = [self.text substringWithRange:NSMakeRange(idx, 1)];
+            currentMorhingChar.frame = [self.charRects[idx] CGRectValue];
+            currentMorhingChar.alpha = 1.0;
+            currentMorhingChar.fontSize = self.font.pointSize;
+            
+            [characters addObject:currentMorhingChar];
+        }
+        
+        _currentCharacters = characters;
     }
     
-    return characters;
+    return _currentCharacters;
 }
 
 - (NSArray *)currentPreviousCharactersWithProgress:(CGFloat)progress {
@@ -244,9 +273,8 @@
 
 - (NSArray *)rectsOfString:(NSString *)string font:(UIFont *)font{
     
-    if (!string || string.length == 0) {
-        return nil;
-    }
+    if (!string || string.length == 0) return nil;
+    if (CGRectEqualToRect(self.bounds, CGRectZero)) return nil;
     
     CGRect bounds = self.bounds;
     CGFloat boundsWidth = CGRectGetWidth(bounds);
@@ -309,13 +337,23 @@
     return emitter;
 }
 
+- (void)resetEmitterImage {
+    
+    UIImage *image = [self rerenderImage:WYPodImageNamed(@"ic_basic_sparkle")
+                               fillColor:self.textColor];
+    [self.emitters enumerateObjectsUsingBlock:^(CAEmitterLayer *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj.emitterCells firstObject].contents = (__nonnull id)image.CGImage;
+    }];
+}
+
 - (CAEmitterLayer *)createEmitter {
     
     CAEmitterLayer *emitter = [CAEmitterLayer layer];
     emitter.renderMode = kCAEmitterLayerOutline;
     emitter.emitterShape = kCAEmitterLayerLine;
     
-    UIImage *image = WYPodImageNamed(@"ic_basic_sparkle");
+    UIImage *image = [self rerenderImage:WYPodImageNamed(@"ic_basic_sparkle")
+                               fillColor:self.textColor];
     
     CAEmitterCell *cell = [CAEmitterCell emitterCell];
     cell.contents = (__nonnull id)image.CGImage;
@@ -330,11 +368,29 @@
     cell.yAcceleration = 100;
     cell.scaleSpeed = self.font.pointSize / 300.0 * -1.5;
     cell.scaleRange = 0.1;
-    cell.color = [UIColor darkGrayColor].CGColor;
     
     emitter.emitterCells = @[cell];
     
     return emitter;
+}
+
+- (UIImage *)rerenderImage:(UIImage *)image fillColor:(UIColor *)color {
+    
+    CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+    
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, image.scale);
+    [color setFill];
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(ctx, 0, CGRectGetHeight(rect));
+    CGContextScaleCTM(ctx, 1.0, -1.0);
+    CGContextSetBlendMode(ctx, kCGBlendModeNormal);
+    CGContextClipToMask(ctx, rect, image.CGImage);
+    CGContextFillRect(ctx, rect);
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 @end

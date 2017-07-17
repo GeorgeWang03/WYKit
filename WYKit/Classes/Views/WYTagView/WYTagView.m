@@ -87,11 +87,11 @@
                                                           CGFLOAT_MAX)
                         limitedToNumberOfLines:0].size;
         tagWidth = targetSize.width + (tagInset.left + tagInset.right);
-        // min tag width is 60
+        // min tag width is 50
         tagWidth = fmax(tagWidth, 50);
         
         cTagHeight = targetSize.height + (tagInset.top + tagInset.bottom);
-         
+        
         // if tag frame out of view's bounds in horizontal
         // or the previous label numberOfLine greater than 1
         // start a new tag line and put the current tag close to the left edge
@@ -100,7 +100,6 @@
             c_x = contentInset.left;
             c_y += (CGRectGetHeight(previousLabel.bounds) + lineSpacing);
         }
-        
         
         // if label frame out of view's bounds
         // stop layout

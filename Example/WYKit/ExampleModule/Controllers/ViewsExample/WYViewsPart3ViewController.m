@@ -77,11 +77,14 @@
     self.morphingLabel = [[WYMorphingLabel alloc] init];
     self.morphingLabel.text = @"WYKitDemo";
     self.morphingLabel.repetable = YES;
+    self.morphingLabel.textColor = [UIColor redColor];
+    self.morphingLabel.font = [UIFont systemFontOfSize:40];
+    self.morphingLabel.textAlignment = NSTextAlignmentCenter;
     self.morphingLabel.frame = CGRectMake(CGRectGetWidth(self.view.bounds)/2-80, _currrentTopEdgeY+50, 160, 40);
     
     [self.mainScrollView addSubview:self.morphingLabel];
     
-    _currrentTopEdgeY += 100;
+    _currrentTopEdgeY += 60;
     self.mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.bounds), _currrentTopEdgeY);
     
     UIButton *startButton = [[UIButton alloc] init];

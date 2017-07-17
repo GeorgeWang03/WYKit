@@ -46,18 +46,19 @@
     NSInteger count;
     CGFloat c_x, c_y;
     UIEdgeInsets tagInset, contentInset;
+    CGSize targetSize;
     CGFloat tagHeight, tagWidth, cTagHeight;
     CGFloat lineSpacing, itemSpacing;
     CGFloat boundsWidth, boundsHeight, contentWidth, contentHeight;
-    UILabel *cLabel;
+    UILabel *cLabel, *previousLabel;
     CGRect cFrame;
     NSString *cString;
     NSInteger cLen;
     
     count = self.titles.count;
-    c_x = contentInset.left; c_y = contentInset.top;
     tagInset = self.tagContentInset;
     contentInset = self.contentInset;
+    c_x = contentInset.left; c_y = contentInset.top;
     tagHeight = self.font.pointSize + tagInset.top + tagInset.bottom;
     cTagHeight = tagHeight;
     lineSpacing = self.lineSpacing; itemSpacing = self.itemSpacing;
@@ -81,20 +82,28 @@
         
         cString = self.titles[idx];
         cLen = cString.length;
-        tagWidth = cLen*self.font.pointSize + tagInset.left + tagInset.right;
+        targetSize = [cLabel textRectForBounds:CGRectMake(0, 0,
+                                                          contentWidth-(tagInset.left + tagInset.right),
+                                                          CGFLOAT_MAX)
+                        limitedToNumberOfLines:0].size;
+        tagWidth = targetSize.width + (tagInset.left + tagInset.right);
+        // min tag width is 60
+        tagWidth = fmax(tagWidth, 50);
         
-        if (c_x + tagWidth > boundsWidth - contentInset.right) {
+        cTagHeight = targetSize.height + (tagInset.top + tagInset.bottom);
+         
+        // if tag frame out of view's bounds in horizontal
+        // or the previous label numberOfLine greater than 1
+        // start a new tag line and put the current tag close to the left edge
+        if (c_x + tagWidth > boundsWidth - contentInset.right
+            || CGRectGetHeight(previousLabel.bounds) - cTagHeight > 0.5) {
             c_x = contentInset.left;
-            c_y += (cTagHeight + lineSpacing);
+            c_y += (CGRectGetHeight(previousLabel.bounds) + lineSpacing);
         }
         
-        if (tagWidth > contentWidth) {
-            cTagHeight = [cLabel textRectForBounds:CGRectMake(0, 0, contentWidth, CGFLOAT_MAX) limitedToNumberOfLines:0].size.height;
-            cTagHeight += (tagInset.top + tagInset.bottom);
-        } else {
-            cTagHeight = tagHeight;
-        }
         
+        // if label frame out of view's bounds
+        // stop layout
         if (c_y + cTagHeight > boundsHeight - contentInset.bottom) {
             break;
         }
@@ -104,6 +113,7 @@
         cLabel.frame = cFrame;
         [self addSubview:cLabel];
         
+        previousLabel = cLabel;
         c_x += (tagWidth + itemSpacing);
     }
 }

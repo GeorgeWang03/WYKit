@@ -24,7 +24,7 @@
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     _collectionView.collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
-    [_collectionView registerNib:[WYCollectionPickerViewCell wy_loadGeneralNibByBundlePath:WYPodBundle]
+    [_collectionView registerNib:[WYCollectionPickerViewCell wy_loadGeneralNibByBundlePath:WYPodBundlePath]
       forCellWithReuseIdentifier:@"cell"];
 }
 

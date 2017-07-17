@@ -38,7 +38,7 @@ typedef NS_ENUM(NSUInteger, WYCPCircleLayerType) {
 
 ///////--------------------------------------- UNAVAILABLE ------------------------------------------///////
 
-//- (instancetype)init UNAVAILABLE_ATTRIBUTE;
-//- (instancetype)initWithFrame:(CGRect)frame UNAVAILABLE_ATTRIBUTE;
+- (instancetype)init UNAVAILABLE_ATTRIBUTE;
+- (instancetype)initWithFrame:(CGRect)frame UNAVAILABLE_ATTRIBUTE;
 
 @end

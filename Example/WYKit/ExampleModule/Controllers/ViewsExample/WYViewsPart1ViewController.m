@@ -18,6 +18,7 @@
 @interface WYViewsPart1ViewController () <WYAutoPlayScrollViewDelegate>
 {
     CGFloat _currrentTopEdgeY;
+    dispatch_once_t onceToken;
 }
 
 @property (nonatomic, strong) UIScrollView *mainScrollView;
@@ -56,7 +57,6 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         self.mainScrollView.frame = self.view.bounds;
         

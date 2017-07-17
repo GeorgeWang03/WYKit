@@ -46,6 +46,13 @@
 
 - (void)show;
 - (void)reloadData;
-- (void)finishLoadDataAtClassIndex:(NSInteger)classIndex success:(BOOL)success error:(NSError *)error;
+
+
+/**
+ For async loading
+ */
+- (void)finishLoadDataAtClassIndex:(NSInteger)classIndex
+                           success:(BOOL)success
+                             error:(NSError *)error;
 
 @end

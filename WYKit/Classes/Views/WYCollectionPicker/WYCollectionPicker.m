@@ -81,7 +81,7 @@
 - (void)setupSubviews {
     CGRect screenbBounds = [UIScreen mainScreen].bounds;
     
-    _pickView = [WYCollectionPickerView wy_loadFromNibByBundlePath:WYPodBundle];
+    _pickView = [WYCollectionPickerView wy_loadFromNibByBundlePath:WYPodBundlePath];
     _pickView.delegate = self;
     _pickView.titleLabel.text = _title;
     [_pickView.cancelButton addTarget:self action:@selector(hide) forControlEvents:UIControlEventTouchUpInside];

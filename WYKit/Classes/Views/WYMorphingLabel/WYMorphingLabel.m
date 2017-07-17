@@ -6,6 +6,7 @@
 //  Copyright © 2016年 yingwang. All rights reserved.
 //
 
+#import "WYPodDefine.h"
 #import "WYMorphingLabel.h"
 
 #define DEFAULT_ANIMATION_DURATION 1.0
@@ -314,7 +315,7 @@
     emitter.renderMode = kCAEmitterLayerOutline;
     emitter.emitterShape = kCAEmitterLayerLine;
     
-    UIImage *image = [UIImage imageNamed:@"Sparkle"];
+    UIImage *image = WYPodImageNamed(@"ic_basic_sparkle");
     
     CAEmitterCell *cell = [CAEmitterCell emitterCell];
     cell.contents = (__nonnull id)image.CGImage;

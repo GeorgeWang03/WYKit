@@ -10,6 +10,7 @@
 #import "UIButton+WYSpark.h"
 #import "WYSparkButton.h"
 #import "WYMorphingLabel.h"
+#import "WYPodDefine.h"
 
 @interface WYSparkButtonDemoController ()
 //@property (weak, nonatomic) IBOutlet WYSparkButton *privateButton; //连接到ib上的button outlet
@@ -19,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     self.extendedLayoutIncludesOpaqueBars = YES;
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -27,18 +29,11 @@
     CGFloat boundsHeight = CGRectGetHeight(self.view.bounds);
     
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(boundsWidth/2-50, boundsHeight/2, 40, 40)];
-    [button setImage:[UIImage imageNamed:@"app_ic_tabbar_find_on"]
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(boundsWidth/2-20, 100, 40, 40)];
+    [button setImage:WYPodImageNamed(@"ic_basic_cir_s")
             forState:UIControlStateNormal]; // tips:这个一定要设置UIControlStateNormal
     [self.view addSubview:button];
     [button wy_addTarget:self action:@selector(handleAction) forControlEvents:UIControlEventTouchUpInside animationAttributes:nil];
-    
-    WYMorphingLabel *label = [[WYMorphingLabel alloc] initWithFrame:CGRectMake(20, 0, 300, 300)];
-    label.text = @"ABCDEF";
-    label.font = [UIFont systemFontOfSize:80];
-    [self.view addSubview:label];
-    label.repetable = YES;
-    [label startAnimation];
     
     // xib 设置
 //    [_privateButton addTarget:self action:@selector(handleAction) forControlEvents:UIControlEventTouchUpInside];

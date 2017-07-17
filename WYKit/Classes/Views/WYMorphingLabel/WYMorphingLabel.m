@@ -122,17 +122,11 @@
         }
     }
     
-//    NSLog(@"current frame %lu", _currentFrameIndex);
     [self setNeedsDisplay];
     _currentFrameIndex += 1;
 }
 
 - (void)drawTextInRect:(CGRect)rect {
-    
-//    if (!_animatable) {
-//        [super drawTextInRect:rect];
-//        return;
-//    }
     
     CGFloat progress = fmin((float)(_currentFrameIndex) / (float)_totalFrames, 1.0);
 //    NSLog(@"progress %f", progress);

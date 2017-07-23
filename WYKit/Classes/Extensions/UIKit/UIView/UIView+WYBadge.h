@@ -14,6 +14,8 @@
 
 @property (nonatomic, readonly) UILabel *wy_badge;
 
+@property (nonatomic) CGPoint wy_badgeOffset;
+
 @property (nonatomic) CGFloat wy_badgeHeight;
 
 @end

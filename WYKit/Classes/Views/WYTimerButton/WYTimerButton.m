@@ -57,10 +57,14 @@
                                                      [strongSelf.timerDelegate stopTimer];
                                                      strongSelf.userInteractionEnabled = YES;
                                                      
+                                                     [strongSelf updateButtonAppearence];
+                                                     
                                                      if (strongSelf.completeBlock) strongSelf.completeBlock(YES);
+                                                 } else {
+                                                     
+                                                     [strongSelf updateButtonAppearence];
+                                                     
                                                  }
-                                                 
-                                                 [strongSelf updateButtonAppearence];
                                              } userInfo:nil repeats:YES];
 }
 

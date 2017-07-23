@@ -41,6 +41,10 @@ static char *kStopAnimationKey = "kStopAnimationKey";
     return self.indicator.activityIndicatorViewStyle;
 }
 
+- (BOOL)wy_indicatorAnimating {
+    return self.indicator.isAnimating;
+}
+
 - (UIActivityIndicatorView *)indicator {
     UIActivityIndicatorView *indicator = objc_getAssociatedObject(self, kActivicatorIndicatorKey);
     
@@ -55,15 +59,25 @@ static char *kStopAnimationKey = "kStopAnimationKey";
     return indicator;
 }
 
-- (void (^)())startIndicatorAnimation {
+- (void (^)(WYButtonIndicatorOption))startIndicatorAnimation {
     id block = objc_getAssociatedObject(self, kStartAnimationKey);
     
     if (!block) {
         __weak UIButton *weakSelf = self;
-        block = ^{
-            weakSelf.imageView.layer.transform = CATransform3DMakeScale(0, 0, 0);
+        block = ^(WYButtonIndicatorOption opt){
+            if (weakSelf.indicator.isAnimating) return;
+            if (opt == kWYButtonIndicatorInsteadImage) {
+                weakSelf.imageView.layer.transform = CATransform3DMakeScale(0, 0, 0);
+                weakSelf.indicator.center = weakSelf.imageView.center;
+            } else if (opt == kWYButtonIndicatorInsteadTitle) {
+                weakSelf.titleLabel.layer.transform = CATransform3DMakeScale(0, 0, 0);
+                weakSelf.indicator.center = weakSelf.titleLabel.center;
+            } else {
+                weakSelf.imageView.layer.transform = CATransform3DMakeScale(0, 0, 0);
+                weakSelf.titleLabel.layer.transform = CATransform3DMakeScale(0, 0, 0);
+                weakSelf.indicator.center = CGPointMake(CGRectGetMidX(weakSelf.bounds), CGRectGetMidY(weakSelf.bounds));
+            }
             weakSelf.userInteractionEnabled = NO;
-            weakSelf.indicator.center = weakSelf.imageView.center;
             [weakSelf.indicator startAnimating];
         };
         
@@ -79,6 +93,8 @@ static char *kStopAnimationKey = "kStopAnimationKey";
     if (!block) {
         __weak UIButton *weakSelf = self;
         block = ^{
+            if (!weakSelf.indicator.isAnimating) return;
+            weakSelf.titleLabel.layer.transform = CATransform3DIdentity;
             weakSelf.imageView.layer.transform = CATransform3DIdentity;
             weakSelf.userInteractionEnabled = YES;
             [weakSelf.indicator stopAnimating];
@@ -90,7 +106,7 @@ static char *kStopAnimationKey = "kStopAnimationKey";
     return block;
 }
 
-- (void (^)())wy_startIndicatorAnimation {
+- (void (^)(WYButtonIndicatorOption))wy_startIndicatorAnimation {
     return self.startIndicatorAnimation;
 }
 

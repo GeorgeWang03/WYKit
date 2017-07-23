@@ -110,7 +110,7 @@ const static CGFloat minCoe = 0.2;
     return springer;
 }
 
-- (void)setwy_originCenter:(CGPoint)wy_originCenter {
+- (void)setWy_originCenter:(CGPoint)wy_originCenter {
     objc_setAssociatedObject(self, UIViewCurryAnimationOriginCenterKey, [NSValue valueWithCGPoint:wy_originCenter], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -120,7 +120,7 @@ const static CGFloat minCoe = 0.2;
     return [point CGPointValue];
 }
 
-- (void)setwy_completedBlock:(void (^)(UIView *, BOOL))wy_completedBlock {
+- (void)setWy_completedBlock:(void (^)(UIView *, BOOL))wy_completedBlock {
     
     id block = [wy_completedBlock copy];
     
@@ -231,6 +231,8 @@ const static CGFloat minCoe = 0.2;
 - (void)wy_addCurryWithCompleted:(void (^)(UIView *, BOOL))completedBlock {
     
     NSAssert(self.superview, @"View must add to a superview before curry reaction!");
+    
+    [self.superview layoutIfNeeded];
     
     if (completedBlock) self.wy_completedBlock = completedBlock;
     

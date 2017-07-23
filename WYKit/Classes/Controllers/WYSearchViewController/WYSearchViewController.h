@@ -1,15 +1,16 @@
 //
 //  WYSearchViewController.h
-//  WYKit
+//  CPCS
 //
 //  Created by yingwang on 2017/6/24.
-//  Copyright © 2017年 yingwang. All rights reserved.
+//  Copyright © 2017年 全国邮政电子商务运营中心. All rights reserved.
 //
 //  通用搜索控制器
 //
 
 #import <UIKit/UIKit.h>
 #import "WYSearchBar.h"
+#import "WYSearchFuzzyViewController.h"
 #import "WYSearchPopularViewController.h"
 
 @class WYSearchViewController;
@@ -35,8 +36,10 @@
 
 @end
 
-@protocol WYSearchViewControllerTempraryDelegate <NSObject>
+@protocol WYSearchViewControllerTempraryDelegate
 @required
+@property (nonatomic, copy) void(^internalHandleItemSelected)(NSString *keywork);
+
 - (void)wy_searchController:(WYSearchViewController *)searchController changeKeyword:(NSString *)keyword;
 
 @optional
@@ -48,6 +51,8 @@
 @property (nonatomic, readonly) WYSearchBar *searchBar;
 
 - (instancetype)initWithChildViewController:(UIViewController<WYSearchViewControllerResultDelegate> *)vc;
+
+- (instancetype)initWithChildViewController:(UIViewController<WYSearchViewControllerResultDelegate> *)vc tempraryViewController:(UIViewController<WYSearchViewControllerTempraryDelegate> *)tvc;
 
 - (instancetype)initWithChildViewController:(UIViewController<WYSearchViewControllerResultDelegate> *)vc
                       popularViewController:(UIViewController<WYSearchViewControllerPopularDelegate> *)pvc tempraryViewController:(UIViewController<WYSearchViewControllerTempraryDelegate> *)tvc;

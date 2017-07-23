@@ -217,7 +217,7 @@
     [idtButton addTarget:self
                          action:@selector(handleIndicatorButtonAction:)
                forControlEvents:UIControlEventTouchUpInside];
-     
+    
     [vc.view addSubview:idtButton];
 }
 

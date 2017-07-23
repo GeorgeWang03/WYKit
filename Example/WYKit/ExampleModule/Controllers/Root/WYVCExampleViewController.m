@@ -1,26 +1,28 @@
 //
-//  WYRootViewController.m
+//  WYVCExampleViewController.m
 //  WYKit
 //
 //  Created by yingwang on 2017/6/13.
-//  Copyright © 2017年 全国邮政电子商务运营中心. All rights reserved.
-//
+//  Copyright © 2017年 GeorgeWang03. All rights reserved.
 //
 
 //View
 
 //Model
 
+//ViewMode
+#import "WYSearchFuzzyViewModel.h"
+
 //Controller
-#import "WYRootViewController.h"
 #import "WYVCExampleViewController.h"
-#import "WYViewsExampleViewController.h"
+#import "WYImageSliderViewController.h"
+#import "WYSearchListViewController.h"
 
 //Other
 #import "WYMarco.h"
 #import "Masonry.h"
 
-@interface WYRootViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface WYVCExampleViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -28,7 +30,7 @@
 
 @end
 
-@implementation WYRootViewController
+@implementation WYVCExampleViewController
 #pragma mark - Getter Setter
 
 #pragma mark - Intial
@@ -43,7 +45,7 @@
     
     _tableView.tableFooterView = [[UIView alloc] init];
     [_tableView registerClass:[UITableViewCell class]
-     forCellReuseIdentifier:@"cell"];
+       forCellReuseIdentifier:@"cell"];
     
     self.view = [[UIView alloc] init];
     [self.view addSubview:_tableView];
@@ -64,7 +66,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.titles = @[@"ViewsExample", @"ControllerExample"];
+    self.titles = @[@"WYImageSliderViewController", @"WYSearchViewController"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -90,21 +92,41 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    UIViewController *vc;
     switch (indexPath.row) {
         case 0:
-            vc = [[WYViewsExampleViewController alloc] init];
+        {
+            WYImageSliderViewController *vc = [[WYImageSliderViewController alloc] init];
+            vc.imageURLs = @[@"http://p3.music.126.net/J9xewS5h-mZ63a3E-G7Jpw==/3287539774465863.jpg",
+                             @"http://img4.duitang.com/uploads/item/201309/22/20130922233443_ws4H4.thumb.700_0.jpeg",
+                             @"http://cn.toluna.com/dpolls_images/2016/07/18/3105ff14-c15b-4e84-91be-37a21f16ab3c_x400.jpg"];
+            vc.titles = @[@"mickey_001", @"mickey_002", @"mickey_003"];
+            vc.initialImageIndex = 0;
+            
+            [self.navigationController pushViewController:vc animated:YES];
+        }
             break;
         case 1:
-            vc = [[WYVCExampleViewController alloc] init];
-            break;
+        {
+            WYSearchListViewController *lvc = [[WYSearchListViewController alloc] init];
             
+            WYSearchPopularViewController *pvc = [[WYSearchPopularViewController alloc] initWithHistoryIdentifier:@"WYDemoSearchHistoryIdentifier"
+                                                                                                           option:WYSearchPopularComponentOptionHistory];
+            
+            WYSearchFuzzyViewModel *fvm = [[WYSearchFuzzyViewModel alloc] init];
+            WYSearchFuzzyViewController *fvc = [[WYSearchFuzzyViewController alloc] initWithViewModel:fvm];
+            
+            
+            WYSearchViewController *svc = [[WYSearchViewController alloc] initWithChildViewController:lvc
+                                                                                popularViewController:pvc
+                                                                               tempraryViewController:fvc];
+            svc.searchBar.style = WYSearchBarStyleWhite;
+            
+            [self.navigationController pushViewController:svc animated:YES];
+        }
+            break;
         default:
-            vc = [[UIViewController alloc] init];
             break;
     }
-    
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

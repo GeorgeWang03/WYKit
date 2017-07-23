@@ -30,6 +30,9 @@
 		C3C150C91EEF8A7800B648A4 /* WYRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C150C81EEF8A7800B648A4 /* WYRootViewController.m */; };
 		C3C150CC1EEF8ABA00B648A4 /* WYViewsExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C150CB1EEF8ABA00B648A4 /* WYViewsExampleViewController.m */; };
 		C3C150CF1EEF91C600B648A4 /* WYViewsPart1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C150CE1EEF91C600B648A4 /* WYViewsPart1ViewController.m */; };
+		C3EF1C9C1F24BF4100FBD016 /* WYVCExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C9B31E1F24BD5600F7F0EB /* WYVCExampleViewController.m */; };
+		C3EF1CAD1F24CC8E00FBD016 /* WYSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EF1CAC1F24CC8E00FBD016 /* WYSearchListViewController.m */; };
+		C3EF1CB01F24CEB900FBD016 /* WYSearchFuzzyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EF1CAF1F24CEB900FBD016 /* WYSearchFuzzyViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,12 @@
 		C3C150CB1EEF8ABA00B648A4 /* WYViewsExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYViewsExampleViewController.m; sourceTree = "<group>"; };
 		C3C150CD1EEF91C600B648A4 /* WYViewsPart1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYViewsPart1ViewController.h; sourceTree = "<group>"; };
 		C3C150CE1EEF91C600B648A4 /* WYViewsPart1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYViewsPart1ViewController.m; sourceTree = "<group>"; };
+		C3C9B31D1F24BD5600F7F0EB /* WYVCExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYVCExampleViewController.h; sourceTree = "<group>"; };
+		C3C9B31E1F24BD5600F7F0EB /* WYVCExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYVCExampleViewController.m; sourceTree = "<group>"; };
+		C3EF1CAB1F24CC8E00FBD016 /* WYSearchListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYSearchListViewController.h; sourceTree = "<group>"; };
+		C3EF1CAC1F24CC8E00FBD016 /* WYSearchListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYSearchListViewController.m; sourceTree = "<group>"; };
+		C3EF1CAE1F24CEB900FBD016 /* WYSearchFuzzyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYSearchFuzzyViewModel.h; sourceTree = "<group>"; };
+		C3EF1CAF1F24CEB900FBD016 /* WYSearchFuzzyViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYSearchFuzzyViewModel.m; sourceTree = "<group>"; };
 		DCDD37B90C7FB6F79DC3186B /* WYKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = WYKit.podspec; path = ../WYKit.podspec; sourceTree = "<group>"; };
 		DF90430DAF73805E2DB84847 /* Pods-WYKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WYKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WYKit_Example/Pods-WYKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E00B7DA0573132A571619D6A /* Pods_WYKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WYKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				C3C150C51EEF8A1900B648A4 /* Root */,
+				C3EF1CA91F24CC2700FBD016 /* VCExample */,
 				C3C150C61EEF8A1900B648A4 /* ViewsExample */,
 			);
 			path = Controllers;
@@ -239,6 +249,8 @@
 				C3C150C81EEF8A7800B648A4 /* WYRootViewController.m */,
 				C3C150CA1EEF8ABA00B648A4 /* WYViewsExampleViewController.h */,
 				C3C150CB1EEF8ABA00B648A4 /* WYViewsExampleViewController.m */,
+				C3C9B31D1F24BD5600F7F0EB /* WYVCExampleViewController.h */,
+				C3C9B31E1F24BD5600F7F0EB /* WYVCExampleViewController.m */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -256,6 +268,25 @@
 				C3A28E761F20557300B37D6B /* WYViewsPart4ViewController.m */,
 			);
 			path = ViewsExample;
+			sourceTree = "<group>";
+		};
+		C3EF1CA91F24CC2700FBD016 /* VCExample */ = {
+			isa = PBXGroup;
+			children = (
+				C3EF1CAA1F24CC3800FBD016 /* WYSearchExample */,
+			);
+			path = VCExample;
+			sourceTree = "<group>";
+		};
+		C3EF1CAA1F24CC3800FBD016 /* WYSearchExample */ = {
+			isa = PBXGroup;
+			children = (
+				C3EF1CAB1F24CC8E00FBD016 /* WYSearchListViewController.h */,
+				C3EF1CAC1F24CC8E00FBD016 /* WYSearchListViewController.m */,
+				C3EF1CAE1F24CEB900FBD016 /* WYSearchFuzzyViewModel.h */,
+				C3EF1CAF1F24CEB900FBD016 /* WYSearchFuzzyViewModel.m */,
+			);
+			path = WYSearchExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -465,8 +496,11 @@
 				6003F59E195388D20070C39A /* WYAppDelegate.m in Sources */,
 				C3C150CF1EEF91C600B648A4 /* WYViewsPart1ViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* WYViewController.m in Sources */,
+				C3EF1C9C1F24BF4100FBD016 /* WYVCExampleViewController.m in Sources */,
 				C3C150CC1EEF8ABA00B648A4 /* WYViewsExampleViewController.m in Sources */,
 				C3283A851F1705820079359C /* WYViewsPart3ViewController.m in Sources */,
+				C3EF1CB01F24CEB900FBD016 /* WYSearchFuzzyViewModel.m in Sources */,
+				C3EF1CAD1F24CC8E00FBD016 /* WYSearchListViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

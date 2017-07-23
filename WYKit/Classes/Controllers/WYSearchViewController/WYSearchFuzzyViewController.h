@@ -1,9 +1,9 @@
 //
 //  WYSearchFuzzyViewController.h
-//  WYKit
+//  CPCS
 //
 //  Created by yingwang on 2017/7/11.
-//  Copyright © 2017年 yingwang. All rights reserved.
+//  Copyright © 2017年 cpeoc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

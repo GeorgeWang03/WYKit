@@ -1,9 +1,9 @@
 //
 //  WYSearchViewController.m
-//  WYKit
+//  CPCS
 //
 //  Created by yingwang on 2017/6/24.
-//  Copyright © 2017年 yingwang. All rights reserved.
+//  Copyright © 2017年 全国邮政电子商务运营中心. All rights reserved.
 //
 //  通用搜索控制器
 //
@@ -46,8 +46,9 @@ typedef NS_ENUM(NSUInteger, WYSearchViewChildType) {
 #pragma mark - Getter and Setter
 - (WYSearchBar *)pSearchBar {
     if (!_pSearchBar) {
-        _pSearchBar = [WYSearchBar wy_loadFromNibByBundlePath:WYPodBundle];
+        _pSearchBar = [WYSearchBar wy_loadFromNibByBundlePath:WYPodBundlePath];
         _pSearchBar.delegate = self;
+        _pSearchBar.placeholder = @"请输入商家名称/地址";
     }
     return _pSearchBar;
 }
@@ -77,6 +78,12 @@ typedef NS_ENUM(NSUInteger, WYSearchViewChildType) {
                       tempraryViewController:nil];
 }
 
+- (instancetype)initWithChildViewController:(UIViewController<WYSearchViewControllerResultDelegate> *)vc tempraryViewController:(UIViewController<WYSearchViewControllerTempraryDelegate> *)tvc {
+    return [self initWithChildViewController:vc
+                       popularViewController:nil
+                      tempraryViewController:tvc];
+}
+
 - (instancetype)initWithChildViewController:(UIViewController<WYSearchViewControllerResultDelegate> *)vc popularViewController:(UIViewController<WYSearchViewControllerPopularDelegate> *)pvc tempraryViewController:(UIViewController<WYSearchViewControllerTempraryDelegate> *)tvc {
     
     self = [super init];
@@ -86,8 +93,15 @@ typedef NS_ENUM(NSUInteger, WYSearchViewChildType) {
         self.mainDisplayViewController = vc;
         [self addChildViewController:vc];
         
+        __weak typeof(self) weakSelf = self;
         self.popularViewController = pvc;
         self.tempResultViewController = tvc;
+        if (self.tempResultViewController) {
+            self.tempResultViewController.internalHandleItemSelected = ^(NSString *keywork) {
+                weakSelf.searchBar.textfield.text = keywork;
+                [weakSelf searchBarConfirmSearch:weakSelf.searchBar];
+            };
+        }
     }
     return self;
 }
@@ -130,6 +144,7 @@ typedef NS_ENUM(NSUInteger, WYSearchViewChildType) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     __weak WYSearchViewController *weakSelf = self;
     self.popularViewController.quickSearchForKeyword = ^(NSString *keyword) {
@@ -231,7 +246,7 @@ static float kAnimationDuration = 0.4;
     [UIView animateWithDuration:kAnimationDuration
                      animations:^{
                          customeView.alpha = 1;
-                         self.pSearchBar.frame = CGRectMake(10,
+                         self.pSearchBar.frame = CGRectMake(8,
                                                             CGRectGetMinY(self.pSearchBar.frame)
                                                             , boundsWidth-30-45, 32);
                      }];
@@ -274,7 +289,7 @@ static float kAnimationDuration = 0.4;
 
 - (void)searchBarDidBeginEditing:(WYSearchBar *)searchBar {
     if (searchBar.textfield.text.length) {
-        [self changeFirstRespondControllerWithType:WYSearchViewChildPopular];
+        [self changeFirstRespondControllerWithType:WYSearchViewChildTemprary];
         [self safePerformSelector:@selector(wy_searchController:changeKeyword:)
                            object:self.tempResultViewController
                         parameter:self parameter:searchBar.textfield.text];

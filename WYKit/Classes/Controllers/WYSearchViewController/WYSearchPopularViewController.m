@@ -1,9 +1,9 @@
 //
 //  WYSearchPopularViewController.m
-//  WYKit
+//  CPCS
 //
 //  Created by yingwang on 2017/6/24.
-//  Copyright © 2017年 yingwang. All rights reserved.
+//  Copyright © 2017年 全国邮政电子商务运营中心. All rights reserved.
 //
 //  搜索控制器-热门搜索／历史搜索子控制器
 //

@@ -28,6 +28,9 @@
  *
  *	@return 生成图像
  */
-+ (UIImage *)wy_gradientImageFromColors:(NSArray *)colors frame:(CGRect)frame startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint;
++ (UIImage *)wy_gradientImageFromColors:(NSArray *)colors
+                                  frame:(CGRect)frame
+                             startPoint:(CGPoint)startPoint
+                               endPoint:(CGPoint)endPoint;
 
 @end

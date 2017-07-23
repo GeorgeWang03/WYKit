@@ -1,13 +1,12 @@
 //
 //  WYSearchFuzzyViewController.m
-//  WYKit
+//  CPCS
 //
 //  Created by yingwang on 2017/7/11.
-//  Copyright © 2017年 yingwang. All rights reserved.
+//  Copyright © 2017年 cpeoc. All rights reserved.
 //
 
 #import "Masonry.h"
-#import "WYPodDefine.h"
 #import "WYSearchFuzzyViewController.h"
 
 /**
@@ -39,7 +38,7 @@
 - (UIImageView *)searchIconView {
     if (!_searchIconView) {
         _searchIconView = [[UIImageView alloc] init];
-        _searchIconView.image = WYPodImageNamed(@"ic_basic_search");
+        _searchIconView.image = [UIImage imageNamed:@"ic_basic_search_blue"];
         _searchIconView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _searchIconView;
@@ -190,14 +189,20 @@
        STRONG_SELF
         [strongSelf.indicatorView stopAnimating];
         if (success) {
-            strongSelf.tableView.hidden = NO;
-            [strongSelf.tableView reloadData];
+            if (strongSelf.viewModel.items.count) {
+                strongSelf.tableView.hidden = NO;
+                [strongSelf.tableView reloadData];
+            } else {
+                
+            }
+        } else {
+            
         }
     }];
 }
 
 #pragma mark - WYSearchViewControllerTemprary Delegate
-- (void)ip_searchController:(WYSearchViewController *)searchController changeKeyword:(NSString *)keyword {
+- (void)wy_searchController:(WYSearchViewController *)searchController changeKeyword:(NSString *)keyword {
     
     self.viewModel.keywork = keyword;
     [self reloadData];

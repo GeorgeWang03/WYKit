@@ -81,6 +81,7 @@
     apsView.loop = YES;
     apsView.pagesCount = 5;
     apsView.delegate = self;
+    apsView.contentViewInset = UIEdgeInsetsMake(0, 20, 0, 20);
     
     apsView.frame = CGRectMake(0, _currrentTopEdgeY, CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.view.bounds)*9/16.0);
     [self.mainScrollView addSubview:apsView];

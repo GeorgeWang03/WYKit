@@ -16,6 +16,7 @@
 #import "WYViewsPart2ViewController.h"
 #import "WYViewsPart3ViewController.h"
 #import "WYViewsPart4ViewController.h"
+#import "WYViewsPart5ViewController.h"
 #import "WYSparkButtonDemoController.h"
 
 //Other
@@ -66,7 +67,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.titles = @[@"Part_01", @"Part_02", @"Part_03", @"Part_04", @"WYSparkButtonDemoController"];
+    self.titles = @[@"Part_01", @"Part_02", @"Part_03", @"Part_04", @"Part_05", @"WYSparkButtonDemoController"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -118,6 +119,12 @@
         }
             break;
         case 4:
+        {
+            WYViewsPart5ViewController *vc = [[WYViewsPart5ViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 5:
         {
             WYSparkButtonDemoController *vc = [[WYSparkButtonDemoController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];

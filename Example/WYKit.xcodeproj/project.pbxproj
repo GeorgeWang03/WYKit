@@ -25,6 +25,7 @@
 		AF6D489AA4E8C6A36D7F6547 /* Pods_WYKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D90EE9E09A7AE7E4F708CF /* Pods_WYKit_Tests.framework */; };
 		BE61EAC1BEF000E0FA8BA025 /* Pods_WYKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00B7DA0573132A571619D6A /* Pods_WYKit_Example.framework */; };
 		C3283A851F1705820079359C /* WYViewsPart3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3283A841F1705820079359C /* WYViewsPart3ViewController.m */; };
+		C383AF5F1FEB9AD700DD85B7 /* WYViewsPart5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C383AF5E1FEB9AD700DD85B7 /* WYViewsPart5ViewController.m */; };
 		C39C9E9A1F161A2A002AA474 /* WYViewsPart2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C39C9E991F161A2A002AA474 /* WYViewsPart2ViewController.m */; };
 		C3A28E771F20557300B37D6B /* WYViewsPart4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A28E761F20557300B37D6B /* WYViewsPart4ViewController.m */; };
 		C3C150C91EEF8A7800B648A4 /* WYRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C150C81EEF8A7800B648A4 /* WYRootViewController.m */; };
@@ -74,6 +75,8 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3283A831F1705820079359C /* WYViewsPart3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYViewsPart3ViewController.h; sourceTree = "<group>"; };
 		C3283A841F1705820079359C /* WYViewsPart3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYViewsPart3ViewController.m; sourceTree = "<group>"; };
+		C383AF5D1FEB9AD700DD85B7 /* WYViewsPart5ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYViewsPart5ViewController.h; sourceTree = "<group>"; };
+		C383AF5E1FEB9AD700DD85B7 /* WYViewsPart5ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYViewsPart5ViewController.m; sourceTree = "<group>"; };
 		C39C9E981F161A2A002AA474 /* WYViewsPart2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYViewsPart2ViewController.h; sourceTree = "<group>"; };
 		C39C9E991F161A2A002AA474 /* WYViewsPart2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYViewsPart2ViewController.m; sourceTree = "<group>"; };
 		C3A28E751F20557300B37D6B /* WYViewsPart4ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYViewsPart4ViewController.h; sourceTree = "<group>"; };
@@ -266,6 +269,8 @@
 				C3283A841F1705820079359C /* WYViewsPart3ViewController.m */,
 				C3A28E751F20557300B37D6B /* WYViewsPart4ViewController.h */,
 				C3A28E761F20557300B37D6B /* WYViewsPart4ViewController.m */,
+				C383AF5D1FEB9AD700DD85B7 /* WYViewsPart5ViewController.h */,
+				C383AF5E1FEB9AD700DD85B7 /* WYViewsPart5ViewController.m */,
 			);
 			path = ViewsExample;
 			sourceTree = "<group>";
@@ -420,7 +425,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A8C341B41090F8AA79F176B2 /* [CP] Embed Pods Frameworks */ = {
@@ -480,7 +485,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -497,6 +502,7 @@
 				C3C150CF1EEF91C600B648A4 /* WYViewsPart1ViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* WYViewController.m in Sources */,
 				C3EF1C9C1F24BF4100FBD016 /* WYVCExampleViewController.m in Sources */,
+				C383AF5F1FEB9AD700DD85B7 /* WYViewsPart5ViewController.m in Sources */,
 				C3C150CC1EEF8ABA00B648A4 /* WYViewsExampleViewController.m in Sources */,
 				C3283A851F1705820079359C /* WYViewsPart3ViewController.m in Sources */,
 				C3EF1CB01F24CEB900FBD016 /* WYSearchFuzzyViewModel.m in Sources */,

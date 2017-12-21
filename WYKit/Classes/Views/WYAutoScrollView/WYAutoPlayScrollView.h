@@ -22,6 +22,8 @@
 @property (nonatomic, assign) IBInspectable BOOL loop;
 @property (nonatomic, assign) IBInspectable NSInteger pagesCount;
 
+@property (nonatomic) UIEdgeInsets contentViewInset;
+
 // The interval for auto scrolling next image, if equal 0.0, it does not auto scrolling.
 @property (nonatomic, assign) IBInspectable CGFloat autoPlayInterval;
 

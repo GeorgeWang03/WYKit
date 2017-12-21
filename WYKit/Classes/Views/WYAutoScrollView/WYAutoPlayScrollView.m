@@ -514,9 +514,9 @@
     NSInteger idx = 0;
     for (UIImageView *imageView in _imageViews) {
         
-        imageView.frame = CGRectMake(idx*CGRectGetWidth(_privateScrollView.bounds), 0,
-                                     CGRectGetWidth(_privateScrollView.bounds),
-                                     CGRectGetHeight(_privateScrollView.bounds));
+        imageView.frame = CGRectMake(idx*CGRectGetWidth(_privateScrollView.bounds)+self.contentViewInset.left, self.contentViewInset.top,
+                                     CGRectGetWidth(_privateScrollView.bounds)-(self.contentViewInset.left+self.contentViewInset.right),
+                                     CGRectGetHeight(_privateScrollView.bounds)-(self.contentViewInset.top+self.contentViewInset.bottom));
         
         if (idx < _pagesCount || _loop) {
             

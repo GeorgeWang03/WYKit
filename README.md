@@ -60,66 +60,66 @@ WYKit design the interface like most Controls in UIKit.framework, and contains v
 
 * **Views**
 
-<p align="center"><img width="180" src="IMG/img_002.gif"/></p> 
+<p align="center"><img width="300" src="IMG/img_002.gif"/></p> 
 <p align="center">
 <b>WYAutoPlayScrollView</b>
 </p>
 
-<p align="center"><img width="180" src="IMG/img_003.gif"/></p> 
+<p align="center"><img width="300" src="IMG/img_003.gif"/></p> 
 <p align="center">
 <b>WYCollectionPicker</b>
 </p>
 
-<p align="center"><img width="180" src="IMG/img_004.gif"/></p> 
+<p align="center"><img width="360" src="IMG/img_004.gif"/></p> 
 <p align="center">
 <b>WYCircleProgressBar</b>
 </p>
 
-<p align="center"><img width="180" src="IMG/img_005.gif"/></p> 
+<p align="center"><img width="360" src="IMG/img_005.gif"/></p> 
 <p align="center">
 <b>WYTimerButton</b>
 </p>
 
-<p align="center"><img width="180" src="IMG/img_008.gif"/></p> 
+<p align="center"><img width="360" src="IMG/img_008.gif"/></p> 
 <p align="center">
 <b>WYCheckinProgressView</b>
 </p>
 
-<p align="center"><img width="180" src="IMG/img_009.gif"/></p> 
+<p align="center"><img width="360" src="IMG/img_009.gif"/></p> 
 <p align="center">
 <b>WYLikeButton</b>
 </p>
 
-<p align="center"><img width="180" src="IMG/img_010.gif"/></p> 
+<p align="center"><img width="360" src="IMG/img_010.gif"/></p> 
 <p align="center">
 <b>WYSparkButton</b>
 </p>
 
-<p align="center"><img width="180" src="IMG/img_013.gif"/></p> 
+<p align="center"><img width="360" src="IMG/img_013.gif"/></p> 
 <p align="center">
 <b>WYMorphingLabel</b>
 </p>
 
 * **Categories**
 
-<p align="center"><img width="180" src="IMG/img_006.gif"/></p> 
+<p align="center"><img width="360" src="IMG/img_006.gif"/></p> 
 <p align="center">
 <b>UIView+WYBadge / UIView+WYCurryAnimation</b>
 </p>
 
-<p align="center"><img width="180" src="IMG/img_007.gif"/></p> 
+<p align="center"><img width="360" src="IMG/img_007.gif"/></p> 
 <p align="center">
 <b>UIButton+WYIndicator</b>
 </p>
 
 * **Controllers**
 
-<p align="center"><img width="180" src="IMG/img_011.gif"/></p> 
+<p align="center"><img width="300" src="IMG/img_011.gif"/></p> 
 <p align="center">
 <b>WYImageSliderViewController</b>
 </p>
 
-<p align="center"><img width="180" src="IMG/img_012.gif"/></p> 
+<p align="center"><img width="300" src="IMG/img_012.gif"/></p> 
 <p align="center">
 <b>WYSearchViewController</b>
 </p>

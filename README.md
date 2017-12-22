@@ -7,9 +7,8 @@
 
 Collection of personal code from daily development，contains some useful custom component, inculde views, viewControllers, categories and so on.
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+If you love WYChart , encourage me with a star 🌟 , thanks!
+如果你喜欢WYKit，给一个星星 🌟 鼓励一下，谢谢！
 
 ## Requirements
 

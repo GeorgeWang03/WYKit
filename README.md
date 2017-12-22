@@ -127,15 +127,13 @@ WYKit design the interface like most Controls in UIKit.framework, and contains v
 ## License
 
 WYKit is available under the MIT license. See the LICENSE file for more info.
-</b>
-</p>
 
-##Features
+## Features
 
-###v0.1.0
+### v0.1.0
 
 Initial release.
 
-##Contact
+## Contact
 
 If you have any problem or got an idear, i will be glad if share them to me by a `#issue` or [georgewang003@gmail.com](georgewang003@gmail.com), and this my [personal blog](http://blog.oneinbest.com) where you can find some technology about WYKit or any other topics.

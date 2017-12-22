@@ -139,6 +139,8 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.estimatedSectionFooterHeight = 0;
+    _tableView.estimatedSectionHeaderHeight = 0;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     _tableView.tableFooterView = [[UIView alloc] init];

@@ -78,7 +78,7 @@
     self.morphingLabel.text = @"WYKitDemo";
     self.morphingLabel.repetable = YES;
     self.morphingLabel.textColor = [UIColor redColor];
-    self.morphingLabel.font = [UIFont systemFontOfSize:40];
+    self.morphingLabel.font = [UIFont systemFontOfSize:30];
     self.morphingLabel.textAlignment = NSTextAlignmentCenter;
     self.morphingLabel.frame = CGRectMake(CGRectGetWidth(self.view.bounds)/2-80, _currrentTopEdgeY+50, 160, 40);
     

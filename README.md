@@ -7,8 +7,9 @@
 
 Collection of personal code from daily development，contains some useful custom component, inculde views, viewControllers, categories and so on.
 
-If you love WYChart , encourage me with a star 🌟 , thanks!
-如果你喜欢WYKit，给一个星星 🌟 鼓励一下，谢谢！
+**If you love WYKit , encourage me with a star 🌟 , thanks!**
+
+**如果你喜欢WYKit，给一个星星 🌟 鼓励一下，谢谢！**
 
 ## Requirements
 

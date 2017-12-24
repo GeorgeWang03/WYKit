@@ -1,9 +1,9 @@
 //
 //  WYSearchBar.h
-//  WYCS
+//  WYKit
 //
 //  Created by yingwang on 2017/5/18.
-//  Copyright © 2017年 yingwang. All rights reserved.
+//  Copyright © 2017年 GeorgeWang03. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

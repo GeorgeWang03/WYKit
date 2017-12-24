@@ -1,9 +1,9 @@
 //
 //  UIButton+WYIndicator.h
-//  CPCS
+//  WYKit
 //
 //  Created by yingwang on 2017/6/24.
-//  Copyright © 2017年 yingwang. All rights reserved.
+//  Copyright © 2017年 GeorgeWang03. All rights reserved.
 //
 //  UIButton扩展
 //

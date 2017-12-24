@@ -1,9 +1,9 @@
 //
 //  WYMainIntroductionRichTextView+WYParser.m
-//  Pods
+//  WYKit
 //
 //  Created by yingwang on 2017/4/6.
-//  Copyright © 2017年 yingwang. All rights reserved.
+//  Copyright © 2017年 GeorgeWang03. All rights reserved.
 //
 //  文章解析器
 //

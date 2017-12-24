@@ -67,7 +67,7 @@
         
         // setup WYTagView
         [self setupWYTagView];
-        [self.tagView reloadData];
+        [self .tagView reloadData];
     });
 }
 

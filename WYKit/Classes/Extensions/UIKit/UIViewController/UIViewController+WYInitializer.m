@@ -1,9 +1,9 @@
 //
 //  UIViewController+WYInitializer.m
-//  Pods
+//  WYKit
 //
 //  Created by yingwang on 2017/4/24.
-//  Copyright © 2017年 yingwang. All rights reserved.
+//  Copyright © 2017年 GeorgeWang03. All rights reserved.
 //
 //  UIViewController初始化
 //

@@ -3,7 +3,7 @@
 //  WYKit
 //
 //  Created by yingwang on 2017/6/7.
-//  Copyright © 2017年 yingwang. All rights reserved.
+//  Copyright © 2017年 GeorgeWang03. All rights reserved.
 //
 //  日历扩展
 //

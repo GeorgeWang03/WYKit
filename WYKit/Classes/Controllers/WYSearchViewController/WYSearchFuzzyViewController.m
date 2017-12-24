@@ -1,9 +1,9 @@
 //
 //  WYSearchFuzzyViewController.m
-//  CPCS
+//  WYKit
 //
 //  Created by yingwang on 2017/7/11.
-//  Copyright © 2017年 cpeoc. All rights reserved.
+//  Copyright © 2017年 GeorgeWang03. All rights reserved.
 //
 
 #import "Masonry.h"
